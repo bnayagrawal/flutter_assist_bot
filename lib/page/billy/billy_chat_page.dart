@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BillyChatPage extends StatefulWidget {
@@ -7,8 +7,15 @@ class BillyChatPage extends StatefulWidget {
 }
 
 class _BillyChatPageState extends State<BillyChatPage> {
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+
+        ),
+      ),
+    );
   }
 }
