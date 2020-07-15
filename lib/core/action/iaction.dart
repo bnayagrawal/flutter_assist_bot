@@ -8,9 +8,12 @@ abstract class IAction {
 }
 
 class ActionData {
+  final String actionLabel;
+
   final Capability capability;
 
   final Map<String, dynamic> data;
 
-  const ActionData(this.capability, this.data) : assert(null != capability && null != data);
+  const ActionData(this.actionLabel, this.capability, this.data)
+      : assert(null != actionLabel && null != capability && null != data);
 }

@@ -19,10 +19,10 @@ class CapabilityWelcome implements ICapability {
   CapabilityWelcome(this.actionCallback)
       : this.actions = [
           TextButtonAction('Yes', () {
-            actionCallback(ActionData(Capability.RECIPE_TYPE, {}));
+            actionCallback(ActionData('Yes', Capability.RECIPE_TYPE, {}));
           }),
           TextButtonAction('Who is Billy?', () {
-            actionCallback(ActionData(Capability.WHO_IS_BILLY, {}));
+            actionCallback(ActionData('Who is Billy?', Capability.WHO_IS_BILLY, {}));
           }),
         ];
 
