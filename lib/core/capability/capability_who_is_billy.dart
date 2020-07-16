@@ -13,6 +13,8 @@ class CapabilityWhoIsBilly implements ICapability {
 
   Capability get capability => _capability;
 
+  final bool removeActionsOnClick = true;
+
   final List<String> messages = const [
     'Good Question! 💡',
     'I am Billy, an assistant bot! 🤖',

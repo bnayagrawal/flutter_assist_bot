@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_assist_bot/util/types.dart';
 
 class ChatTextReplyWidget extends StatefulWidget {
-  final DataCallback callback;
+  final Function(String message) callback;
 
   ChatTextReplyWidget(this.callback);
 
@@ -86,15 +86,18 @@ class _ChatTextReplyWidgetState extends State<ChatTextReplyWidget> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: IconButton(
-              visualDensity: VisualDensity.compact,
-              icon: Icon(Icons.send),
-              color: Color(0xff0e8f94),
-              disabledColor: Color(0xffB0B9CF),
-              onPressed: !_enableButton ? null : () {
-                widget.callback(_textEditingController.text);
-                _clearText();
-              },
+            child: Transform.rotate(
+              angle: -140/360,
+              child: IconButton(
+                visualDensity: VisualDensity.compact,
+                icon: Icon(Icons.send),
+                color: Colors.deepPurple,
+                disabledColor: Color(0xffB0B9CF),
+                onPressed: !_enableButton ? null : () {
+                  widget.callback(_textEditingController.text);
+                  _clearText();
+                },
+              ),
             ),
           )
         ],

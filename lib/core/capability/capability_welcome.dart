@@ -9,6 +9,8 @@ class CapabilityWelcome implements ICapability {
   // Unique ID of a capability
   static const Capability _capability = Capability.WELCOME;
 
+  final bool removeActionsOnClick = true;
+
   // Action callback handle
   final ActionCallback actionCallback;
 
@@ -18,8 +20,8 @@ class CapabilityWelcome implements ICapability {
 
   CapabilityWelcome(this.actionCallback)
       : this.actions = [
-          TextButtonAction('Yes', () {
-            actionCallback(ActionData('Yes', Capability.RECIPE_TYPE, {}));
+          TextButtonAction('Suggest Recipe!', () {
+            actionCallback(ActionData('Suggest Recipe!', Capability.RECIPE_SEARCH_BY, {}));
           }),
           TextButtonAction('Who is Billy?', () {
             actionCallback(ActionData('Who is Billy?', Capability.WHO_IS_BILLY, {}));

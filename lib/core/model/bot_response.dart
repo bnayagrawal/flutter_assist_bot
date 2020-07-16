@@ -5,8 +5,9 @@ class BotResponse implements IResponse {
   final List<String> messages;
   final List<Widget> medias;
   final List<Widget> actions;
+  final bool removeActionsOnClick;
 
   final DateTime timeStamp;
 
-  BotResponse(this.messages, this.medias, this.actions) : timeStamp = DateTime.now();
+  BotResponse(this.messages, this.medias, this.actions, this.removeActionsOnClick) : timeStamp = DateTime.now();
 }

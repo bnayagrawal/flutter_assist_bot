@@ -1,4 +1,5 @@
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ChatBubbleWidget {
@@ -26,6 +27,7 @@ class ChatBubbleWidget {
           bottomRight: Radius.circular(_corner_radius),
         )
       ),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       margin: EdgeInsets.only(bottom: 8),
       child: child,
     );

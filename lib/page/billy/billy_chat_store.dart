@@ -4,6 +4,7 @@ import 'package:flutter_assist_bot/core/action/iaction.dart';
 import 'package:flutter_assist_bot/core/billy_bot.dart';
 import 'package:flutter_assist_bot/core/model/bot_response.dart';
 import 'package:flutter_assist_bot/core/model/iresponse.dart';
+import 'package:flutter_assist_bot/core/model/user_response.dart';
 import 'package:mobx/mobx.dart';
 
 part 'billy_chat_store.g.dart';
@@ -11,6 +12,8 @@ part 'billy_chat_store.g.dart';
 class BillyChatStore = _BillyChatStore with _$BillyChatStore;
 
 abstract class _BillyChatStore with Store implements BillyBotAdapter {
+
+  static const int _simulate_response_delay_millis = 250;
 
   _BillyChatStore() {
     BotResponse response = _getBillyBot().welcome();
@@ -30,7 +33,19 @@ abstract class _BillyChatStore with Store implements BillyBotAdapter {
 
   @override
   onAction(ActionData data) {
-    _getBillyBot().processAction(data);
+    // Add user action message to chat
+    _responseStreamController.sink.add(UserResponse(data.actionLabel));
+    // Get bot response
+    BotResponse response = _getBillyBot().processAction(data);
+    // Simulate network response delay
+    Future.delayed(Duration(milliseconds: _simulate_response_delay_millis),(){
+      _responseStreamController.sink.add(response);
+    });
+  }
+
+  sendUserResponse(String message) {
+    // Add user action message to chat
+    _responseStreamController.sink.add(UserResponse(message));
   }
 
   dispose() {

@@ -6,5 +6,4 @@ import 'iaction.dart';
 class RecipeListAction implements IAction {
 
   Widget render() => Center(child: Text('Demo'));
-
 }

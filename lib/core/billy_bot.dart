@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_assist_bot/core/action/iaction.dart';
-import 'package:flutter_assist_bot/core/capability/capability_welcome.dart';
-import 'package:flutter_assist_bot/core/capability/icapability.dart';
+import 'package:flutter_assist_bot/core/capability/capabilities.dart';
 import 'package:flutter_assist_bot/core/model/bot_response.dart';
+
+import 'capability/capability_who_is_billy.dart';
 
 // Singleton
 class BillyBot {
@@ -27,8 +28,26 @@ class BillyBot {
   }
 
   BotResponse processAction(ActionData data) {
-    //Todo: Implement
-    throw UnimplementedError('processAction');
+    switch (data.capability) {
+      case Capability.WELCOME:
+        return _getBotResponse(CapabilityWelcome(_adapter.onAction));
+        break;
+      case Capability.WHO_IS_BILLY:
+        return _getBotResponse(CapabilityWhoIsBilly());
+        break;
+      case Capability.RECIPE_SEARCH_BY:
+        return _getBotResponse(CapabilityRecipeSearchBy(_adapter.onAction));
+        break;
+      case Capability.RECIPE_BY_CUISINE:
+        return _getBotResponse(CapabilityRecipeByCuisine(_adapter.onAction));
+        break;
+      case Capability.RECIPE_BY_TYPE:
+        return _getBotResponse(CapabilityRecipeByType(_adapter.onAction));
+        break;
+      default:
+        return _getBotResponse(CapabilityUnsupported(_adapter.onAction));
+        break;
+    }
   }
 
   BotResponse _getBotResponse(ICapability capability) {
@@ -39,9 +58,9 @@ class BillyBot {
     );
     final List<Widget> actions = List<Widget>.generate(
       capability.actions.length,
-          (index) => capability.actions[index].render(),
+      (index) => capability.actions[index].render(),
     );
-    return BotResponse(messages, medias, actions);
+    return BotResponse(messages, medias, actions, capability.removeActionsOnClick);
   }
 }
 

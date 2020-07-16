@@ -27,6 +27,7 @@ dependencies:
   http: ^0.12.1
   connectivity: ^0.4.8+6
   provider: ^4.1.2
+  intl: ^0.16.1
   #State Management
   mobx: ^1.2.1
   flutter_mobx: ^1.1.0

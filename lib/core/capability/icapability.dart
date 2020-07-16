@@ -9,6 +9,8 @@ abstract class ICapability {
 
   bool get requiresTextInput;
 
+  bool get removeActionsOnClick;
+
   Capability get capability;
 
   List<String> get messages;
@@ -20,7 +22,10 @@ abstract class ICapability {
 
 // Capabilities of billy bot
 enum Capability {
+  UNSUPPORTED,
   WELCOME,
   WHO_IS_BILLY,
-  RECIPE_TYPE,
+  RECIPE_SEARCH_BY,
+  RECIPE_BY_CUISINE,
+  RECIPE_BY_TYPE,
 }
