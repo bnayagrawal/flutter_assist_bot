@@ -2,9 +2,11 @@
 import 'package:flutter_assist_bot/core/action/iaction.dart';
 import 'package:flutter_assist_bot/core/action/text_button_action.dart';
 import 'package:flutter_assist_bot/core/capability/icapability.dart';
+import 'package:flutter_assist_bot/core/media/image_asset_media.dart';
 import 'package:flutter_assist_bot/core/media/imedia.dart';
 
 import 'package:flutter_assist_bot/core/util/types.dart';
+import 'package:flutter_assist_bot/util/assets.dart' as Assets;
 
 class CapabilityRecipeSearchBy implements ICapability {
   // Unique ID of a capability
@@ -29,7 +31,9 @@ class CapabilityRecipeSearchBy implements ICapability {
     }),
   ];
 
-  final List<IMedia> medias = const [];
+  final List<IMedia> medias = [
+    ImageAssetMedia(Assets.food_suggest_gif),
+  ];
 
   final List<IAction> actions;
 

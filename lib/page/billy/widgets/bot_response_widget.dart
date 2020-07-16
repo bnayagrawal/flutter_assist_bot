@@ -107,10 +107,23 @@ class _BotResponseWidgetState extends State<BotResponseWidget> {
                     flex: 3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: widget._botResponse.medias,
+                    ),
+                  ),
+                  Expanded(flex: 1, child: SizedBox.shrink()),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: widget._botResponse.actions,
                     ),
                   ),
-                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(flex: 1, child: SizedBox.shrink()),
                 ],
               )
             ],

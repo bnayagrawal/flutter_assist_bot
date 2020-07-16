@@ -2,7 +2,9 @@
 import 'dart:isolate';
 
 import 'package:flutter_assist_bot/core/action/iaction.dart';
+import 'package:flutter_assist_bot/core/media/image_asset_media.dart';
 import 'package:flutter_assist_bot/core/media/imedia.dart';
+import 'package:flutter_assist_bot/util/assets.dart' as Assets;
 
 import 'icapability.dart';
 
@@ -21,13 +23,13 @@ class CapabilityWhoIsBilly implements ICapability {
     'I can assist you on getting the food recipe you want!'
   ];
 
-  const CapabilityWhoIsBilly();
+  CapabilityWhoIsBilly();
 
-  final List<IMedia> medias = const [];
-
-  final List<IAction> actions = const [
-
+  final List<IMedia> medias = [
+    ImageAssetMedia(Assets.billy_robot_gif),
   ];
+
+  final List<IAction> actions = [];
 
   final bool requiresTextInput = false;
 }
