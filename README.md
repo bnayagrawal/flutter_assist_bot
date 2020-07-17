@@ -1,6 +1,6 @@
 # flutter_assist_bot
 
-A bot application that is to assist you on food recipes (Well atleast that's what it was supposed to do). This project is **not complete**. This project has Spoonacular API implemented but **not connected**. 
+A bot application that is to assist you on food recipes (Well atleast that's what it was supposed to do). This project is **not complete**. This project has Spoonacular API implemented but **not connected**. I messed up :(
 
 ## Resources
 1. The application icon used from: <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> 
