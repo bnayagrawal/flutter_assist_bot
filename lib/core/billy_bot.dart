@@ -44,6 +44,9 @@ class BillyBot {
       case Capability.RECIPE_BY_TYPE:
         return _getBotResponse(CapabilityRecipeByType(_adapter.onAction));
         break;
+      case Capability.SUGGEST_RECIPE:
+        return _getBotResponse(CapabilitySuggestRecipe(_adapter.onAction, data.data));
+        break;
       default:
         return _getBotResponse(CapabilityUnsupported(_adapter.onAction));
         break;

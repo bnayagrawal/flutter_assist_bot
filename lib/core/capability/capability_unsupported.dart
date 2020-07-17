@@ -18,19 +18,11 @@ class CapabilityUnsupported implements ICapability {
 
   final List<String> messages = const ['Sorry!\nI did not understand that!', 'Do you need help?'];
 
-  CapabilityUnsupported(this.actionCallback)
-      : this.actions = [
-    TextButtonAction('Help me!', () {
-      actionCallback(ActionData('Help me!', Capability.WELCOME, {}));
-    }),
-    TextButtonAction('Who is Billy?', () {
-      actionCallback(ActionData('Who is Billy?', Capability.WHO_IS_BILLY, {}));
-    }),
-  ];
+  CapabilityUnsupported(this.actionCallback);
 
   final List<IMedia> medias = const [];
 
-  final List<IAction> actions;
+  final List<IAction> actions = const [];
 
   final bool requiresTextInput = false;
 }

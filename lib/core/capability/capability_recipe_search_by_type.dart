@@ -37,8 +37,8 @@ class CapabilityRecipeByType implements ICapability {
       'Dessert',
       'Side dish',
       'Salad',
-    ], (cuisine) {
-      actionCallback(ActionData(cuisine, Capability.RECIPE_SEARCH_BY, {}));
+    ], (type) {
+      actionCallback(ActionData(type, Capability.SUGGEST_RECIPE, {'type': type}));
     }),
   ];
 }

@@ -46,6 +46,7 @@ abstract class _BillyChatStore with Store implements BillyBotAdapter {
   sendUserResponse(String message) {
     // Add user action message to chat
     _responseStreamController.sink.add(UserResponse(message));
+    // todo: Ask billy bot to process user response
   }
 
   dispose() {

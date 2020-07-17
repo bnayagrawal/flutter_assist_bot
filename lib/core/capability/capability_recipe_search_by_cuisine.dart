@@ -35,7 +35,7 @@ class CapabilityRecipeByCuisine implements ICapability {
             'Mexican',
             'Korean',
           ], (cuisine) {
-            actionCallback(ActionData(cuisine, Capability.RECIPE_SEARCH_BY, {}));
+            actionCallback(ActionData(cuisine, Capability.SUGGEST_RECIPE, {'cuisine': cuisine}));
           }),
         ];
 }
